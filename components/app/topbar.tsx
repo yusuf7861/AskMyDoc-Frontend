@@ -1,14 +1,26 @@
 "use client"
 
-import { Menu, Bell, Search, Command, Sun } from "lucide-react"
+import { Menu, Bell, Search, Command, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useTheme } from "next-themes"
 
 interface TopbarProps {
   onMenuToggle: () => void
+  isLoggedIn?: boolean
+  user?: {
+    name: string
+    avatar?: string
+  }
 }
 
-export function Topbar({ onMenuToggle }: TopbarProps) {
+export function Topbar({ onMenuToggle, isLoggedIn = false, user }: TopbarProps) {
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   return (
     <header className="flex h-16 items-center justify-between border-b border-border/50 glass-strong px-4 lg:px-6">
       <div className="flex items-center gap-4">
@@ -36,12 +48,18 @@ export function Topbar({ onMenuToggle }: TopbarProps) {
           <Bell className="h-5 w-5" />
           <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-accent animate-pulse" />
         </Button>
-        <Button variant="ghost" size="icon" className="hover:bg-accent/10">
-          <Sun className="h-5 w-5" />
+        <Button variant="ghost" size="icon" className="hover:bg-accent/10" onClick={toggleTheme}>
+          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
         </Button>
-        <div className="ml-2 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent cursor-pointer hover:opacity-90 transition-opacity">
-          <span className="text-xs font-bold text-primary-foreground">U</span>
-        </div>
+        {isLoggedIn && user && (
+          <div className="ml-2 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent cursor-pointer hover:opacity-90 transition-opacity">
+            <span className="text-xs font-bold text-primary-foreground">
+              {user.name.charAt(0).toUpperCase()}
+            </span>
+          </div>
+        )}
       </div>
     </header>
   )

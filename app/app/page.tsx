@@ -19,6 +19,10 @@ export default function AppDashboard() {
   const [documents, setDocuments] = useState<DocumentItem[]>([])
   const [refreshTrigger, setRefreshTrigger] = useState(0)
 
+  // TODO: Replace with actual auth state from your auth provider
+  const isLoggedIn = false
+  const user = isLoggedIn ? { name: "User", email: "user@example.com" } : undefined
+
   const handleUploadSuccess = useCallback(() => {
     // Trigger document list refresh
     setRefreshTrigger(prev => prev + 1)
@@ -43,10 +47,12 @@ export default function AppDashboard() {
         setActivePanel={setActivePanel}
         isOpen={sidebarOpen}
         setIsOpen={setSidebarOpen}
+        isLoggedIn={isLoggedIn}
+        user={user}
       />
 
       <div className="flex flex-1 flex-col overflow-hidden relative">
-        <Topbar onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
+        <Topbar onMenuToggle={() => setSidebarOpen(!sidebarOpen)} isLoggedIn={isLoggedIn} user={user} />
 
         <main className="flex-1 overflow-auto p-6">
           {activePanel === "dashboard" && (
