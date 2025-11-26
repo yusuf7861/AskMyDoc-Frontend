@@ -1,35 +1,56 @@
 "use client"
 
-import { FileText, MessageSquare, Search, TrendingUp, Clock, Zap } from "lucide-react"
+import { useState, useEffect } from "react"
+import { FileText, MessageSquare, Search, TrendingUp, Clock, Zap, Layers } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { getStats } from "@/lib/api"
+import { StatsResponse } from "@/lib/types"
 
-export function DashboardOverview() {
-  const stats = [
+interface DashboardOverviewProps {
+  onNavigate?: (panel: string) => void
+}
+
+export function DashboardOverview({ onNavigate }: DashboardOverviewProps) {
+  const [stats, setStats] = useState<StatsResponse | null>(null)
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const data = await getStats()
+        setStats(data)
+      } catch (error) {
+        console.error("Failed to fetch stats:", error)
+      }
+    }
+    fetchStats()
+  }, [])
+
+  const statsDisplay = [
     {
       label: "Total Documents",
-      value: "0",
-      change: "+0 this week",
+      value: stats?.documents?.toString() ?? "0",
+      change: "Uploaded files",
       icon: FileText,
       gradient: "from-blue-500 to-cyan-500",
     },
     {
-      label: "Questions Asked",
-      value: "0",
-      change: "+0 today",
-      icon: MessageSquare,
+      label: "Total Chunks",
+      value: stats?.chunks?.toString() ?? "0",
+      change: "Indexed segments",
+      icon: Layers,
       gradient: "from-primary to-accent",
     },
     {
-      label: "Searches",
-      value: "0",
-      change: "0% accuracy",
-      icon: Search,
+      label: "Questions Asked",
+      value: "—",
+      change: "RAG queries",
+      icon: MessageSquare,
       gradient: "from-accent to-pink-500",
     },
     {
-      label: "Avg Response Time",
-      value: "0s",
-      change: "Real-time",
+      label: "Status",
+      value: stats ? "Online" : "—",
+      change: "System health",
       icon: Zap,
       gradient: "from-amber-500 to-orange-500",
     },
@@ -47,14 +68,14 @@ export function DashboardOverview() {
           <div className="hidden md:flex items-center gap-2 rounded-full glass px-4 py-2 text-sm">
             <Clock className="h-4 w-4 text-muted-foreground" />
             <span className="text-muted-foreground">Last sync: Just now</span>
-            <div className="status-dot" />
+            <div className={`status-dot ${stats ? "" : "warning"}`} />
           </div>
         </div>
       </div>
 
       {/* Stats Grid */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 stagger-children">
-        {stats.map((stat, index) => (
+        {statsDisplay.map((stat, index) => (
           <Card key={stat.label} className="group hover-lift border-border/50 glass-strong overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start justify-between">
@@ -80,12 +101,13 @@ export function DashboardOverview() {
       {/* Quick Actions */}
       <div className="grid gap-4 sm:grid-cols-3">
         {[
-          { icon: FileText, label: "Upload Document", description: "Add new documents to your library" },
-          { icon: MessageSquare, label: "Ask a Question", description: "Query your document knowledge base" },
-          { icon: Search, label: "Search Documents", description: "Find specific information instantly" },
+          { icon: FileText, label: "Upload Document", description: "Add new documents to your library", panel: "documents" },
+          { icon: MessageSquare, label: "Ask a Question", description: "Query your document knowledge base", panel: "ask" },
+          { icon: Search, label: "System Status", description: "Check system health and stats", panel: "status" },
         ].map((action) => (
           <div
             key={action.label}
+            onClick={() => onNavigate?.(action.panel)}
             className="group cursor-pointer rounded-xl glass-strong p-4 border border-border/50 hover-lift transition-all hover:border-accent/50"
           >
             <div className="flex items-center gap-4">
