@@ -92,9 +92,9 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
+      <section className="relative overflow-hidden pt-24 pb-12 md:pt-32 md:pb-20">
         <div className="mx-auto max-w-7xl px-6 relative">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             <div className="animate-fade-in-up">
               {/* Badge */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm border border-accent/30 animated-border">
@@ -210,7 +210,7 @@ export default function LandingPage() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="mt-20 flex flex-col items-center gap-2 animate-bounce">
+          <div className="mt-12 flex flex-col items-center gap-2 animate-bounce">
             <span className="text-xs text-muted-foreground">Scroll to explore</span>
             <ArrowDown className="h-5 w-5 text-muted-foreground" />
           </div>
@@ -218,9 +218,9 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 relative">
+      <section className="py-10 relative">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 stagger-children">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 stagger-children">
             {[
               { value: "10M+", label: "Documents Processed", icon: FileText },
               { value: "50K+", label: "Active Users", icon: Users },
@@ -229,7 +229,7 @@ export default function LandingPage() {
             ].map((stat, i) => (
               <div
                 key={stat.label}
-                className="relative group rounded-2xl glass-strong p-6 text-center hover-lift border border-border/50"
+                className="relative group rounded-2xl glass-strong p-4 text-center hover-lift border border-border/50"
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <stat.icon className="mx-auto mb-3 h-6 w-6 text-accent" />
@@ -242,10 +242,10 @@ export default function LandingPage() {
       </section>
 
       {/* Logos Section */}
-      <section className="border-y border-border/50 glass py-12">
+      <section className="border-y border-border/50 glass py-8">
         <div className="mx-auto max-w-7xl px-6">
-          <p className="mb-8 text-center text-sm text-muted-foreground">Trusted by teams at leading companies</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8 stagger-children">
+          <p className="mb-6 text-center text-sm text-muted-foreground">Trusted by teams at leading companies</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 stagger-children">
             {["TechCorp", "InnovateLab", "DataFlow", "CloudSync", "AIVentures", "FutureScale"].map((company) => (
               <div
                 key={company}
@@ -259,7 +259,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 md:py-32 relative">
+      <section id="features" className="py-16 md:py-20 relative">
         <div className="absolute top-1/4 left-0 h-96 w-96 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-3xl animate-pulse-glow" />
         <div className="absolute bottom-1/4 right-0 h-80 w-80 rounded-full bg-gradient-to-br from-accent/10 to-primary/10 blur-3xl animate-pulse-glow animation-delay-600" />
 
@@ -278,7 +278,7 @@ export default function LandingPage() {
           </div>
 
           {/* Feature Cards Grid */}
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3 stagger-children">
             {[
               {
                 icon: Upload,
@@ -319,27 +319,27 @@ export default function LandingPage() {
             ].map((feature) => (
               <div
                 key={feature.title}
-                className="group relative rounded-2xl glass-strong p-6 hover-lift border border-border/50 card-shine"
+                className="group relative rounded-2xl glass-strong p-5 hover-lift border border-border/50 card-shine"
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div
-                  className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-lg group-hover:scale-110 transition-transform`}
+                  className={`mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-lg group-hover:scale-110 transition-transform`}
                 >
-                  <feature.icon className="h-7 w-7 text-primary-foreground" />
+                  <feature.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <h3 className="mb-2 text-xl font-bold">{feature.title}</h3>
+                <h3 className="mb-2 text-lg font-bold">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
 
           {/* Feature Image Showcase */}
-          <div className="mt-24 grid items-center gap-12 lg:grid-cols-2 animate-fade-in-up">
-            <div className="space-y-6">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-                <Upload className="h-6 w-6 text-primary-foreground" />
+          <div className="mt-14 grid items-center gap-8 lg:grid-cols-2 animate-fade-in-up">
+            <div className="space-y-4">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
+                <Upload className="h-5 w-5 text-primary-foreground" />
               </div>
-              <h3 className="text-3xl font-bold">Intelligent Document Processing</h3>
+              <h3 className="text-2xl font-bold">Intelligent Document Processing</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Our AI understands the structure of your documents, extracting text, tables, and images while preserving
                 context and relationships.
@@ -375,7 +375,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="mt-24 grid items-center gap-12 lg:grid-cols-2 animate-fade-in-up">
+          <div className="mt-14 grid items-center gap-8 lg:grid-cols-2 animate-fade-in-up">
             <div className="order-2 lg:order-1 relative">
               <div className="overflow-hidden rounded-2xl border border-border/50 glass hover-card glow-sm">
                 <Image
@@ -388,11 +388,11 @@ export default function LandingPage() {
               </div>
               <div className="absolute -z-10 -bottom-4 -left-4 h-full w-full rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20" />
             </div>
-            <div className="order-1 lg:order-2 space-y-6">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
-                <Search className="h-6 w-6 text-primary-foreground" />
+            <div className="order-1 lg:order-2 space-y-4">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
+                <Search className="h-5 w-5 text-primary-foreground" />
               </div>
-              <h3 className="text-3xl font-bold">AI-Powered Semantic Search</h3>
+              <h3 className="text-2xl font-bold">AI-Powered Semantic Search</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Our embedding-based search goes beyond simple keyword matching to understand the semantic meaning of
                 your queries.
@@ -418,7 +418,7 @@ export default function LandingPage() {
       </section>
 
       {/* How it Works */}
-      <section id="how-it-works" className="border-t border-border/50 py-24 md:py-32 relative">
+      <section id="how-it-works" className="border-t border-border/50 py-16 md:py-20 relative">
         <div className="absolute inset-0 dot-pattern opacity-50" />
 
         <div className="mx-auto max-w-7xl px-6 relative">
@@ -434,20 +434,20 @@ export default function LandingPage() {
           </div>
 
           {/* Visual Process Flow */}
-          <div className="mt-16 overflow-hidden rounded-3xl border border-border/50 glass-strong p-8 md:p-12 animate-scale-in">
-            <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-border/50 glass-strong p-6 md:p-8 animate-scale-in">
+            <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
               {/* Step 1 */}
               <div className="flex flex-1 flex-col items-center text-center group">
-                <div className="relative mb-6">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-primary to-accent shadow-xl glow group-hover:scale-110 transition-transform">
-                    <Upload className="h-12 w-12 text-primary-foreground" />
+                <div className="relative mb-4">
+                  <div className="flex h-18 w-18 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-xl glow group-hover:scale-110 transition-transform">
+                    <Upload className="h-9 w-9 text-primary-foreground" />
                   </div>
-                  <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border-2 border-accent text-sm font-bold">
+                  <div className="absolute -top-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-background border-2 border-accent text-xs font-bold">
                     1
                   </div>
                 </div>
-                <div className="mb-2 text-2xl font-bold">Upload</div>
-                <p className="text-muted-foreground max-w-[200px]">Drop your documents in any format</p>
+                <div className="mb-1 text-xl font-bold">Upload</div>
+                <p className="text-sm text-muted-foreground max-w-[180px]">Drop your documents in any format</p>
               </div>
 
               {/* Animated Arrow */}
@@ -461,16 +461,16 @@ export default function LandingPage() {
 
               {/* Step 2 */}
               <div className="flex flex-1 flex-col items-center text-center group">
-                <div className="relative mb-6">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-accent to-primary shadow-xl glow group-hover:scale-110 transition-transform">
-                    <Zap className="h-12 w-12 text-primary-foreground" />
+                <div className="relative mb-4">
+                  <div className="flex h-18 w-18 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-primary shadow-xl glow group-hover:scale-110 transition-transform">
+                    <Zap className="h-9 w-9 text-primary-foreground" />
                   </div>
-                  <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border-2 border-accent text-sm font-bold">
+                  <div className="absolute -top-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-background border-2 border-accent text-xs font-bold">
                     2
                   </div>
                 </div>
-                <div className="mb-2 text-2xl font-bold">Process</div>
-                <p className="text-muted-foreground max-w-[200px]">AI creates intelligent embeddings</p>
+                <div className="mb-1 text-xl font-bold">Process</div>
+                <p className="text-sm text-muted-foreground max-w-[180px]">AI creates intelligent embeddings</p>
               </div>
 
               {/* Animated Arrow */}
@@ -484,29 +484,29 @@ export default function LandingPage() {
 
               {/* Step 3 */}
               <div className="flex flex-1 flex-col items-center text-center group">
-                <div className="relative mb-6">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-primary to-accent shadow-xl glow group-hover:scale-110 transition-transform">
-                    <MessageSquare className="h-12 w-12 text-primary-foreground" />
+                <div className="relative mb-4">
+                  <div className="flex h-18 w-18 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-xl glow group-hover:scale-110 transition-transform">
+                    <MessageSquare className="h-9 w-9 text-primary-foreground" />
                   </div>
-                  <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border-2 border-accent text-sm font-bold">
+                  <div className="absolute -top-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-background border-2 border-accent text-xs font-bold">
                     3
                   </div>
                 </div>
-                <div className="mb-2 text-2xl font-bold">Ask</div>
-                <p className="text-muted-foreground max-w-[200px]">Get instant answers with citations</p>
+                <div className="mb-1 text-xl font-bold">Ask</div>
+                <p className="text-sm text-muted-foreground max-w-[180px]">Get instant answers with citations</p>
               </div>
             </div>
           </div>
 
           {/* Architecture Diagram */}
-          <div className="mt-16 animate-fade-in-up animation-delay-400">
-            <h3 className="mb-8 text-center text-xl font-semibold">System Architecture</h3>
-            <div className="overflow-hidden rounded-2xl border border-border/50 glass hover-card">
+          <div className="mt-10 animate-fade-in-up animation-delay-400 max-w-4xl mx-auto">
+            <h3 className="mb-4 text-center text-lg font-semibold">System Architecture</h3>
+            <div className="overflow-hidden rounded-xl border border-border/50 glass hover-card">
               <Image
                 src="/technical-architecture-diagram-showing-document-up.jpg"
                 alt="System Architecture Diagram"
-                width={1200}
-                height={600}
+                width={800}
+                height={400}
                 className="w-full"
               />
             </div>
@@ -515,7 +515,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-24 md:py-32 relative">
+      <section id="testimonials" className="py-16 md:py-20 relative">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center animate-fade-in-up max-w-3xl mx-auto">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm border border-accent/20">
@@ -556,15 +556,15 @@ export default function LandingPage() {
             ].map((testimonial) => (
               <div
                 key={testimonial.author}
-                className="group relative rounded-2xl glass-strong p-6 hover-lift border border-border/50"
+                className="group relative rounded-2xl glass-strong p-5 hover-lift border border-border/50"
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="mb-4 flex gap-1">
+                <div className="mb-3 flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <p className="mb-6 text-muted-foreground leading-relaxed">"{testimonial.quote}"</p>
+                <p className="mb-4 text-muted-foreground leading-relaxed">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
                     <span className="text-sm font-bold text-primary-foreground">{testimonial.author[0]}</span>
@@ -583,11 +583,11 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 relative">
+      <section className="py-16 md:py-20 relative">
         <div className="absolute inset-0 mesh-gradient opacity-50" />
 
         <div className="mx-auto max-w-7xl px-6 relative">
-          <div className="grid items-center gap-12 lg:grid-cols-2 animate-fade-in-up">
+          <div className="grid items-center gap-8 lg:grid-cols-2 animate-fade-in-up">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
                 Ready to transform your <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">document workflow</span>?
@@ -636,9 +636,9 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 glass py-16">
+      <footer className="border-t border-border/50 glass py-10">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-4">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
@@ -719,7 +719,7 @@ export default function LandingPage() {
               </ul>
             </div>
           </div>
-          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-8 md:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-6 md:flex-row">
             <p className="text-sm text-muted-foreground">&copy; 2025 AskMyDoc. All rights reserved.</p>
             <div className="flex gap-4">
               <div className="h-8 w-8 rounded-lg bg-muted hover:bg-accent/20 transition-colors flex items-center justify-center cursor-pointer">
