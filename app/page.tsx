@@ -104,7 +104,7 @@ export default function LandingPage() {
               </div>
 
               <h1 className="text-balance text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl leading-tight">
-                Ask questions, get <span className="gradient-text-animated">intelligent answers</span> from your
+                Ask questions, get <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">intelligent answers</span> from your
                 documents
               </h1>
 
@@ -233,7 +233,7 @@ export default function LandingPage() {
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <stat.icon className="mx-auto mb-3 h-6 w-6 text-accent" />
-                <div className="text-3xl font-bold gradient-text">{stat.value}</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">{stat.value}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -270,7 +270,7 @@ export default function LandingPage() {
               <span className="font-medium">Powerful Features</span>
             </div>
             <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-              Everything you need to <span className="gradient-text">unlock</span> your documents
+              Everything you need to <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">unlock</span> your documents
             </h2>
             <p className="mx-auto mt-4 text-lg text-muted-foreground">
               Powerful features designed to help you extract insights from any document instantly.
@@ -428,7 +428,7 @@ export default function LandingPage() {
               <span className="font-medium">How it Works</span>
             </div>
             <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-              Three simple steps to <span className="gradient-text">transform</span> your workflow
+              Three simple steps to <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">transform</span> your workflow
             </h2>
             <p className="mx-auto mt-4 text-lg text-muted-foreground">From upload to insight in seconds.</p>
           </div>
@@ -523,7 +523,7 @@ export default function LandingPage() {
               <span className="font-medium">Testimonials</span>
             </div>
             <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-              Loved by <span className="gradient-text">thousands</span> of teams
+              Loved by <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">thousands</span> of teams
             </h2>
           </div>
 
@@ -590,7 +590,7 @@ export default function LandingPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2 animate-fade-in-up">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-                Ready to transform your <span className="gradient-text">document workflow</span>?
+                Ready to transform your <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">document workflow</span>?
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Join thousands of teams who are already saving hours every week with intelligent document search.
