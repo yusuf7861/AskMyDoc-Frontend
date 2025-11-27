@@ -73,12 +73,12 @@ export default function LandingPage() {
             </Link>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/app">
+            <Link href="/login">
               <Button variant="ghost" size="sm" className="hover:bg-accent/10">
                 Log in
               </Button>
             </Link>
-            <Link href="/app">
+            <Link href="/register">
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all hover:scale-105 glow-sm"
@@ -115,12 +115,12 @@ export default function LandingPage() {
 
               {/* CTA Buttons */}
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link href="/app">
+                <Link href="/register">
                   <Button
                     size="lg"
                     className="min-w-[180px] bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all hover:scale-105 glow group"
                   >
-                    Go to App
+                    Get Started Free
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
@@ -596,7 +596,7 @@ export default function LandingPage() {
                 Join thousands of teams who are already saving hours every week with intelligent document search.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/app">
+                <Link href="/register">
                   <Button
                     size="lg"
                     className="min-w-[200px] bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all hover:scale-105 glow group"

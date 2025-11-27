@@ -11,6 +11,12 @@ interface SidebarProps {
   setActivePanel: (panel: ActivePanel) => void
   isOpen: boolean
   setIsOpen: (open: boolean) => void
+  isLoggedIn?: boolean
+  user?: {
+    name: string
+    email: string
+    avatar?: string
+  }
 }
 
 const navItems = [
@@ -20,7 +26,7 @@ const navItems = [
   { id: "status" as const, label: "System Status", icon: Settings },
 ]
 
-export function Sidebar({ activePanel, setActivePanel, isOpen, setIsOpen }: SidebarProps) {
+export function Sidebar({ activePanel, setActivePanel, isOpen, setIsOpen, isLoggedIn = false, user }: SidebarProps) {
   return (
     <>
       {/* Mobile overlay */}
@@ -86,18 +92,22 @@ export function Sidebar({ activePanel, setActivePanel, isOpen, setIsOpen }: Side
           </div>
         </nav>
 
-        <div className="border-t border-border/50 p-4">
-          <div className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-accent/10 to-primary/5 p-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
-              <span className="text-sm font-bold text-primary-foreground">U</span>
+        {isLoggedIn && user && (
+          <div className="border-t border-border/50 p-4">
+            <div className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-accent/10 to-primary/5 p-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
+                <span className="text-sm font-bold text-primary-foreground">
+                  {user.name.charAt(0).toUpperCase()}
+                </span>
+              </div>
+              <div className="flex-1 truncate">
+                <p className="text-sm font-medium">{user.name}</p>
+                <p className="truncate text-xs text-muted-foreground">{user.email}</p>
+              </div>
+              <div className="status-dot" />
             </div>
-            <div className="flex-1 truncate">
-              <p className="text-sm font-medium">User</p>
-              <p className="truncate text-xs text-muted-foreground">user@example.com</p>
-            </div>
-            <div className="status-dot" />
           </div>
-        </div>
+        )}
       </aside>
     </>
   )
