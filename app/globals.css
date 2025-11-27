@@ -479,20 +479,40 @@ html {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, oklch(0.6 0.2 300) 100%);
+  /* Fallback for browsers that don't support oklch */
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+@supports (color: oklch(0.6 0.2 300)) {
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, oklch(0.6 0.2 300) 100%);
+  }
 }
 
 .gradient-text-animated {
-  background: linear-gradient(90deg, var(--primary), var(--accent), oklch(0.6 0.2 300), var(--primary));
+  /* Fallback for browsers that don't support oklch */
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7, #6366f1);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+  display: inline-block;
   animation: gradient-shift 5s ease infinite;
 }
+
+@supports (color: oklch(0.6 0.2 300)) {
+  .gradient-text-animated {
+    background: linear-gradient(90deg, var(--primary), var(--accent), oklch(0.6 0.2 300), var(--primary));
+    background-size: 300% 100%;
+  }
+}
+
 
 /* Glass morphism effect */
 .glass {
