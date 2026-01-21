@@ -22,14 +22,15 @@ import {
   Cpu,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen mesh-gradient noise-overlay relative overflow-hidden">
       {/* Animated background blobs */}
-      <div className="absolute top-20 left-10 h-96 w-96 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-3xl animate-blob" />
-      <div className="absolute top-60 right-20 h-80 w-80 rounded-full bg-gradient-to-br from-accent/20 to-primary/10 blur-3xl animate-blob animation-delay-400" />
-      <div className="absolute bottom-40 left-1/3 h-72 w-72 rounded-full bg-gradient-to-br from-primary/15 to-accent/15 blur-3xl animate-blob animation-delay-800" />
+      <div className="absolute top-20 left-10 h-96 w-96 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-3xl" />
+      <div className="absolute top-60 right-20 h-80 w-80 rounded-full bg-gradient-to-br from-accent/20 to-primary/10 blur-3xl" />
+      <div className="absolute bottom-40 left-1/3 h-72 w-72 rounded-full bg-gradient-to-br from-primary/15 to-accent/15 blur-3xl" />
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
@@ -59,20 +60,9 @@ export default function LandingPage() {
             >
               How it Works
             </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground hover:scale-105 transform"
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground hover:scale-105 transform"
-            >
-              Pricing
-            </Link>
           </div>
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Link href="/login">
               <Button variant="ghost" size="sm" className="hover:bg-accent/10">
                 Log in
@@ -160,7 +150,7 @@ export default function LandingPage() {
             {/* Hero Image with floating elements */}
             <div className="relative animate-fade-in-up animation-delay-200">
               {/* Main dashboard image */}
-              <div className="relative overflow-hidden rounded-2xl border border-border/50 glass shadow-2xl glow-lg animate-float card-shine">
+              <div className="relative overflow-hidden rounded-2xl border border-border/50 glass shadow-2xl glow-lg card-shine">
                 <Image
                   src="/modern-ai-document-search-dashboard-interface-with.jpg"
                   alt="AskMyDoc Dashboard Interface"
@@ -173,7 +163,7 @@ export default function LandingPage() {
               </div>
 
               {/* Floating stats card - left */}
-              <div className="absolute -bottom-6 -left-6 rounded-xl glass-strong p-4 shadow-lg animate-float-delay glow-sm hover-lift">
+              <div className="absolute -bottom-6 -left-6 rounded-xl glass-strong p-4 shadow-lg glow-sm hover-lift">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
                     <Search className="h-6 w-6 text-primary-foreground" />
@@ -186,7 +176,7 @@ export default function LandingPage() {
               </div>
 
               {/* Floating upload card - top right */}
-              <div className="absolute -top-4 -right-4 rounded-xl glass-strong p-4 shadow-lg animate-float glow-sm hover-lift">
+              <div className="absolute -top-4 -right-4 rounded-xl glass-strong p-4 shadow-lg glow-sm hover-lift">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
                     <Upload className="h-6 w-6 text-primary-foreground" />
@@ -199,7 +189,7 @@ export default function LandingPage() {
               </div>
 
               {/* Floating AI card - bottom right */}
-              <div className="absolute bottom-20 -right-8 rounded-xl glass-strong p-3 shadow-lg animate-float-reverse glow-sm hover-lift hidden lg:block">
+              <div className="absolute bottom-20 -right-8 rounded-xl glass-strong p-3 shadow-lg glow-sm hover-lift hidden lg:block">
                 <div className="flex items-center gap-2">
                   <Brain className="h-5 w-5 text-accent" />
                   <span className="text-sm font-medium">AI Processing</span>
@@ -210,7 +200,7 @@ export default function LandingPage() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="mt-12 flex flex-col items-center gap-2 animate-bounce">
+          <div className="mt-12 flex flex-col items-center gap-2 animate-pulse">
             <span className="text-xs text-muted-foreground">Scroll to explore</span>
             <ArrowDown className="h-5 w-5 text-muted-foreground" />
           </div>
@@ -514,74 +504,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-16 md:py-20 relative">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center animate-fade-in-up max-w-3xl mx-auto">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm border border-accent/20">
-              <Star className="h-4 w-4 text-accent fill-accent" />
-              <span className="font-medium">Testimonials</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-              Loved by <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">thousands</span> of teams
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children">
-            {[
-              {
-                quote:
-                  "AskMyDoc has transformed how our legal team handles document review. We've cut research time by 70%.",
-                author: "Sarah Chen",
-                role: "General Counsel",
-                company: "TechCorp",
-                rating: 5,
-              },
-              {
-                quote:
-                  "The semantic search is incredible. It understands context in a way that traditional search never could.",
-                author: "Michael Rodriguez",
-                role: "Research Director",
-                company: "InnovateLab",
-                rating: 5,
-              },
-              {
-                quote:
-                  "Finally, a document AI that actually delivers on its promises. The citations feature is a game-changer.",
-                author: "Emily Watson",
-                role: "VP of Operations",
-                company: "DataFlow",
-                rating: 5,
-              },
-            ].map((testimonial) => (
-              <div
-                key={testimonial.author}
-                className="group relative rounded-2xl glass-strong p-5 hover-lift border border-border/50"
-              >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="mb-3 flex gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="mb-4 text-muted-foreground leading-relaxed">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
-                    <span className="text-sm font-bold text-primary-foreground">{testimonial.author[0]}</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold">{testimonial.author}</div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.role}, {testimonial.company}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 md:py-20 relative">
         <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -654,11 +576,6 @@ export default function LandingPage() {
                 <li>
                   <Link href="#features" className="hover:text-foreground transition-colors">
                     Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#pricing" className="hover:text-foreground transition-colors">
-                    Pricing
                   </Link>
                 </li>
                 <li>
